@@ -1,0 +1,9 @@
+@import './../public/assets/scss/common.scss';
+
+.App {
+  height: 100vh;
+  background-color: $primary-background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

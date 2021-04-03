@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+
+    &--size{
+        min-height: calc(100vh - 40px);
+        width: calc(100vw - 520px);
+    }
+
+    &--theme{
+        background-color: rebeccapurple;
+    }
+
+    &__left{
+        flex: 2;
+        
+        &--theme{
+            background-color: #131C21;
+        }
+    }
+
+    &__middle{
+        flex: 5;
+
+        &--theme{
+            background-color: #262D31;
+        }
+    }
+
+    &__right{
+        // flex: 1;
+
+        &--theme{
+            background-color: aliceblue;
+        }
+    }
+}
