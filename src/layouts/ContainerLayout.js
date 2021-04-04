@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './container.scss';
 
+import LandingPage from './../pages/LandingPage';
+
 export default class ContainerLayout extends Component {
     render(){
         return (
@@ -18,6 +20,8 @@ export default class ContainerLayout extends Component {
                     container__middle 
                     container__middle--theme 
                     container__middle--size">
+
+                    <LandingPage/>
 
                 </div>
                 <div className="
