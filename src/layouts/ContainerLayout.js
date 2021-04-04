@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './container.scss';
 
 import LandingPage from './../pages/LandingPage';
+import RecentchatsSection from './../layouts/RecentChatsLayout';
 
 export default class ContainerLayout extends Component {
     render(){
@@ -14,15 +15,13 @@ export default class ContainerLayout extends Component {
                     container__left 
                     container__left--theme 
                     container__left--size">
-
+                    <RecentchatsSection />
                 </div>
                 <div className="
                     container__middle 
                     container__middle--theme 
                     container__middle--size">
-
                     <LandingPage/>
-
                 </div>
                 <div className="
                     container__right 

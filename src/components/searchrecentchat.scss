@@ -1,0 +1,35 @@
+.searchrecentchat{
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    color: #6E7377;
+
+    &--size{
+        height: 36px;
+        border-radius: 18px;
+        margin: 8px 20px;
+    }
+
+    &--theme{
+        background-color: #323739;
+    }
+
+    &__icon{
+        font-size: 20px;
+        margin: 0px 10px;
+        cursor: pointer;
+    }
+
+    &__input{
+        height: 100%;
+        width: 100%;
+        background-color: inherit;
+        border: none;
+        margin: 0px 10px;
+        font-size: 13px;
+        color: #808384;
+        font-weight: 500;
+        padding: 0px 10px;
+        outline: none;
+    }
+}

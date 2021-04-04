@@ -5,7 +5,7 @@ import image from './../assets/images/landingimg.jpg';
 export default class LandingPage extends Component{
     render(){
         return (
-            <div className="landingsection landingsection--size landingsection--theme">
+            <section className="landingsection landingsection--size landingsection--theme">
                 <div className="landingsection__container">
                     <img src={image} alt="imag" className="landingsection__image" />
                     <div className="landingsection__data">
@@ -16,7 +16,7 @@ export default class LandingPage extends Component{
                     </div>
                 </div>
                 <hr className="landingsection__bottomline" />
-            </div>
+            </section>
         )
     }
 }

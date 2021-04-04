@@ -1,0 +1,32 @@
+.recentchatnavbar{
+    display: flex;
+    align-items: center;
+    padding: 0px 15px;
+    
+    &--size{
+        height: 60px;
+    }
+
+    &--theme{
+        background-color: #2A2F32;
+    }
+
+    &__profile-icon{
+        color: #6E7377;
+        font-size: 35px;
+        cursor: pointer;
+    }
+
+    &__icons{
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    &__icon{
+        cursor: pointer;
+        color: #6E7377;
+        font-size: 22px;
+        margin-right: 20px;
+    }
+}

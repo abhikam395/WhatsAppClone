@@ -1,0 +1,13 @@
+.recentchatsSection{
+    display: flex;
+    flex-direction: column;
+
+    &--size{
+        width: 100%;
+        height: 100%;
+    }
+
+    &--theme{
+        background-color: #131C21;
+    }
+}
