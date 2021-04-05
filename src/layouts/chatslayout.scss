@@ -1,0 +1,21 @@
+.chatslayout{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+    &--size{
+        width: 100%;
+    }
+
+    // &::-webkit-scrollbar-track{
+    //     border: none;
+    // }
+}
+
+.chats{
+    color: #C6C7C9;
+    list-style: none;
+    margin: 30px 80px;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+}

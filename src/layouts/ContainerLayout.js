@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './container.scss';
 
+import ChatAreaLayout from './../pages/ChatAreaPage';
 import LandingPage from './../pages/LandingPage';
 import RecentchatsSection from './../layouts/RecentChatsLayout';
 
@@ -21,7 +22,7 @@ export default class ContainerLayout extends Component {
                     container__middle 
                     container__middle--theme 
                     container__middle--size">
-                    <LandingPage/>
+                    <ChatAreaLayout />
                 </div>
                 <div className="
                     container__right 

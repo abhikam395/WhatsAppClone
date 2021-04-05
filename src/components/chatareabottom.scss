@@ -1,0 +1,48 @@
+.chatareabottom{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+
+    &--size{
+        height: 60px;
+        width: 100%;
+    }
+
+    &--theme{
+        background-color: #1E2428;
+    }
+
+    &__input{
+        border-radius: 22px;
+        border: none;
+        padding: 0px 10px;
+        outline: none;
+        color: #C7C8C9;
+
+        &--size{
+            height: 44px;
+            width: 100%;
+        }
+
+        &--theme{
+            background-color: #33383B;
+        }
+    }
+
+    &__icon{
+        cursor: pointer;
+        font-size: 22px;
+        margin: 0px 15px;
+        color: #C7C8C9;
+    }
+
+    &__emojiicon{
+        font-size: 35px;
+    }
+}
+
+::placeholder{
+    color: #C7C8C9;
+    font-size: 14px;
+}

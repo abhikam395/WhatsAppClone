@@ -1,0 +1,70 @@
+.chat{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 10px;
+    margin-top: 15px;
+    
+    &--size{
+        min-width: 150px;
+        width: fit-content;
+        min-height: auto;
+    }
+
+    // &--theme{
+    //     background-color: #262D31;
+    // }
+
+    &__message{
+        min-height: 30px;
+        font-size: 15px;
+        word-spacing: 2px;
+    }
+
+    &__time{
+        position: absolute;
+        font-size: 12px;
+        right: 10px;
+        bottom: 10px;
+        font-weight: 300;
+    }
+
+    &__other{
+        align-self: flex-start;
+        background-color: #262D31;
+        border-radius: 0px 10px 10px 10px;
+
+        &::before{
+            content: "";
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            top: 0px;
+            left: -10px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid #262D31;
+            border-top: 5px solid #262D31;
+            border-bottom: 5px solid transparent;
+        }
+    }
+
+    &__self{
+        align-self: flex-end;
+        background-color: #056062;
+        border-radius: 10px 0 10px 10px;
+
+        &::before{
+            content: "";
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            top: 0px;
+            right: -10px;
+            border-left: 5px solid #056062;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #056062;
+            border-bottom: 5px solid transparent;
+        }
+    }
+}
+

@@ -1,0 +1,14 @@
+.chatarea{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-left: 1px solid rgba(#6E7377, .4);
+
+    &--size{
+        height: 100%;
+    }
+
+    &--theme{
+        background-color: #0D1418;
+    }
+}

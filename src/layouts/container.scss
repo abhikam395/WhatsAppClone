@@ -2,7 +2,7 @@
     display: flex;
 
     &--size{
-        min-height: calc(100vh - 40px);
+        max-height: calc(100vh - 40px);
         width: calc(100vw - 520px);
     }
 
@@ -13,9 +13,9 @@
     &__left{
         flex: 2;
         
-        &--theme{
+        // &--theme{
            
-        }
+        // }
     }
 
     &__middle{
