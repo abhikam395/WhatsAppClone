@@ -4,6 +4,7 @@ import image from './../assets/images/landingimg.jpg';
 
 import {HiOutlineSearch, HiDotsVertical} from 'react-icons/hi'
 import ChatsOptionComponent from './ChatsOptionComponent';
+import { RIGHTCONTAINERLAYOUTS } from '../utils/Constants';
 
 export default class ChatAreaNavbarComponent extends Component{
 
@@ -27,6 +28,7 @@ export default class ChatAreaNavbarComponent extends Component{
 
     render(){
         let {optionsVisible} = this.state;
+        let {show} = this.props;
 
         return (
             <nav className="
@@ -34,15 +36,25 @@ export default class ChatAreaNavbarComponent extends Component{
                 chatareanavbar--size 
                 chatareanavbar--theme">
                 <div className="chatareanavbar__left">
-                    <img src={image} className="chatareanavbar__image" alt="imag" />
+                    <img src={image} 
+                        className="chatareanavbar__image" 
+                        alt="imag"
+                        onClick={() => show(RIGHTCONTAINERLAYOUTS.USERPROFILE)}
+                    />
                     <div className="chatareanavbar__info">
                         <h2 className="chatareanavbar__name">Ankush Negi</h2>
                         <span className="chatareanavbar__lastseen">last seen today at 4.46 PM</span>
                     </div>
                 </div>
                 <div className="chatareanavbar__right">
-                    <HiOutlineSearch className="chatareanavbar__icon"/>
-                    <HiDotsVertical className="chatareanavbar__icon" onClick={this.toggleOptions}/>
+                    <HiOutlineSearch 
+                        className="chatareanavbar__icon" 
+                        onClick={() => show(RIGHTCONTAINERLAYOUTS.SEARCHMESSAGE)}
+                    />
+                    <HiDotsVertical 
+                        className="chatareanavbar__icon" 
+                        onClick={this.toggleOptions}
+                    />
                     {optionsVisible && 
                         <div className="chatsareanavbar__options">
                             <ChatsOptionComponent hideOptions = {this.hideOptions}/>

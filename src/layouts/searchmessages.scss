@@ -1,4 +1,6 @@
 .searchmessages{
+    display: flex;
+    flex-direction: column;
 
     &--size{
         width: 100%;
@@ -7,5 +9,21 @@
 
     &--theme{
         background-color: #131C21;
+    }
+
+    &__searchbar{
+        border-bottom: 1px solid rgba(#6E7377, .2);
+
+        &--theme{
+            background-color: #1E2429;
+        }
+    }
+
+    &__label{
+        font-size: 14px;
+        font-weight: 400;
+        color: #6E7377;
+        margin-top: 100px;
+        align-self: center;
     }
 }

@@ -1,16 +1,17 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './searchmessagenavbar.scss';
 
-export default class SearchMessageNavbarComponent extends Component{
-    render(){
-        return (
-            <nav className="
-                searchmessagenavbar 
-                searchmessagenavbar--size 
-                searchmessagenavbar--theme">
-                
-                
-            </nav>
-        )
-    }
+import {IoClose} from 'react-icons/io5';
+
+export default function SearchMessageNavbarComponent({hide, title}){
+    return (
+        <nav className="
+            searchmessagenavbar 
+            searchmessagenavbar--size 
+            searchmessagenavbar--theme">
+            
+            <IoClose className="searchmessagenavbar__icon" onClick={hide}/>
+            <h3 className="searchmessagenavbar__title">{title}</h3>
+        </nav>
+    )
 }

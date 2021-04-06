@@ -7,13 +7,14 @@ import ChatAreaBottomComponent from './../components/ChatAreaBottomComponent';
 
 export default class ChatAreaPage extends Component{
     render(){
+        let {show} = this.props;
         return(
             <section className="
                 chatarea 
                 chatarea--size 
                 chatarea--theme">
                 
-                <ChatAreaNavbar />
+                <ChatAreaNavbar show={show}/>
                 <ChatsLayout />
                 <ChatAreaBottomComponent />
             </section>

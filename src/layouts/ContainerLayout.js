@@ -6,8 +6,35 @@ import LandingPage from './../pages/LandingPage';
 import RecentchatsSection from './../layouts/RecentChatsLayout';
 import SearchMessagesLayout from './../layouts/SearchMessagesLayout';
 
+import UserProfileLayout from './../layouts/UserProfileLayout';
+import { RIGHTCONTAINERLAYOUTS } from '../utils/Constants';
+
 export default class ContainerLayout extends Component {
+
+
+    constructor(){
+        super();
+        this.state = {
+            rightContainerVisible: false,
+            enableRightContainer: RIGHTCONTAINERLAYOUTS.SEARCHMESSAGE
+        }
+        this.showRightContainer = this.showRightContainer.bind(this);
+        this.hideRightContainer = this.hideRightContainer.bind(this);
+    }
+
+    showRightContainer(layout){
+        this.setState({
+            rightContainerVisible: true, 
+            enableRightContainer: layout
+        });
+    }
+
+    hideRightContainer(){
+        this.setState({rightContainerVisible: false});
+    }
+
     render(){
+        let {rightContainerVisible, enableRightContainer} = this.state;
         return (
             <div className="
                 container 
@@ -21,13 +48,30 @@ export default class ContainerLayout extends Component {
                 <div className="
                     container__middle 
                     container__middle--size">
-                    <ChatAreaLayout />
+                    <ChatAreaLayout show={this.showRightContainer}/>
                 </div>
-                <div className="
-                    container__right
-                    container__right--size">
-                    <SearchMessagesLayout />
-                </div>
+                {rightContainerVisible && 
+                    <div id="rightcontainer" 
+                         className="
+                            container__right
+                            container__right--size">
+                            {
+                                enableRightContainer === RIGHTCONTAINERLAYOUTS.SEARCHMESSAGE && 
+                                <SearchMessagesLayout
+                                    hide={this.hideRightContainer} 
+                                    title="Search..."
+                                />
+                            }
+                            {
+                                enableRightContainer === RIGHTCONTAINERLAYOUTS.USERPROFILE &&
+                                <UserProfileLayout 
+                                    hide={this.hideRightContainer} 
+                                    title="Contact info"
+                                />
+                            }
+                            
+                    </div>
+                }
             </div>
         )
     }

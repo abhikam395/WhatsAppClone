@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './recentchats.scss';
 
 import RecentChatsNavbar from './../components/RecentChatsNavBar';
-import SearchRecentChatComponent from './../components/SearchRecentChatComponent';
+import SearchbarComponent from '../components/SearchbarComponent';
 import RecentChatList from './../components/RecentChatsList';
 
 export default class RecentChatsLayout extends Component {
@@ -13,7 +13,7 @@ export default class RecentChatsLayout extends Component {
                 recentchatsSection--size 
                 recentchatsSection--theme">
                 <RecentChatsNavbar />
-                <SearchRecentChatComponent />
+                <SearchbarComponent placeholder="Search or start new chat" />
                 <RecentChatList />
             </section>
         )

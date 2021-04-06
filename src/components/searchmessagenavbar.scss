@@ -1,5 +1,7 @@
 .searchmessagenavbar{
     display: flex;
+    align-items: center;
+    color: #DBDCDD;
 
     &--theme{
         background-color: #2A2F32;
@@ -7,5 +9,16 @@
 
     &--size{
         height: 60px;
+    }
+
+    &__icon{
+        margin: 0px 20px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    &__title{
+        font-size: 16px;
+        font-weight: 500;
     }
 }

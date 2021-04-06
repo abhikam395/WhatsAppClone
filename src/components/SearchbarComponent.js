@@ -1,10 +1,13 @@
 import React,{Component} from 'react';
-import './searchrecentchat.scss';
+import './searchbar.scss';
 
 import {HiOutlineSearch} from 'react-icons/hi';
 
 export default class SearchRecentChatComponent extends Component {
+
     render(){
+        let {placeholder} = this.props;
+
         return (
             <section className="
                 searchrecentchat 
@@ -13,7 +16,7 @@ export default class SearchRecentChatComponent extends Component {
 
                 <HiOutlineSearch className="searchrecentchat__icon"/>
                 <input type="text" 
-                    placeholder="Search or start new chat" 
+                    placeholder={placeholder} 
                     className="searchrecentchat__input"/>
             </section>
         )
