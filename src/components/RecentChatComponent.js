@@ -24,7 +24,11 @@ export default class RecentChatComponent extends Component{
     }
     
     render(){
-        let {id, user, message, time} = this.props.chat;
+        let {chat} = this.props;
+        if(!chat)
+            return null;
+
+        let {id, user, message, time} = chat;
         return(
             <li className="recentchat recentchat--size" 
                 onMouseEnter={this.onHoverIn.bind(this, id - 1)} 

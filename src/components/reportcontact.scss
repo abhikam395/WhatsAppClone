@@ -1,0 +1,31 @@
+.reportcontact{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 30px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #2D3134;
+    }
+
+    &--size{
+        height: 60px;
+    }
+
+    &--theme{
+        background-color: #131C21;
+    }
+
+    &__icon{
+        font-size: 22px;
+        color: #EF697A;
+    }
+
+    &__label{
+        margin-left: 20px;
+        font-size: 17px;
+        font-weight: 400;
+        color: #DCDDDF;
+    }
+}

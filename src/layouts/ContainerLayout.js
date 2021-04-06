@@ -54,6 +54,7 @@ export default class ContainerLayout extends Component {
                     <div id="rightcontainer" 
                          className="
                             container__right
+                            container__right--theme
                             container__right--size">
                             {
                                 enableRightContainer === RIGHTCONTAINERLAYOUTS.SEARCHMESSAGE && 

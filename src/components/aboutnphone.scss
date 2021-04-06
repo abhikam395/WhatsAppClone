@@ -1,0 +1,33 @@
+.aboutnphone{
+    margin: 10px 0;
+    padding: 15px 0;
+    padding-left: 30px;
+    color: #DCDDDF;
+
+    &--theme{
+        background-color: #131C21;
+    }
+
+    &__label{
+        color: #018D80;
+        font-size: 14px;
+    }
+
+    &__about{
+        font-weight: 400;
+        margin: 20px 0;
+        font-size: 15px;
+    }
+
+    &__line{
+        border: none;
+        border-bottom: 1px solid rgba(#62686B, 0.4);
+    }
+
+    &__number{
+        font-weight: 400;
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+}
