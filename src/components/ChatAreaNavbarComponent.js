@@ -3,9 +3,31 @@ import './chatareanavbar.scss';
 import image from './../assets/images/landingimg.jpg';
 
 import {HiOutlineSearch, HiDotsVertical} from 'react-icons/hi'
+import ChatsOptionComponent from './ChatsOptionComponent';
 
 export default class ChatAreaNavbarComponent extends Component{
+
+    constructor(){
+        super();
+        this.state = {
+            optionsVisible: false
+        }
+        this.toggleOptions = this.toggleOptions.bind(this);
+        this.hideOptions = this.hideOptions.bind(this);
+    }
+
+    toggleOptions(){
+        let {optionsVisible} = this.state;
+        this.setState({optionsVisible: !optionsVisible});
+    }
+
+    hideOptions(){
+        this.setState({optionsVisible: false});
+    }
+
     render(){
+        let {optionsVisible} = this.state;
+
         return (
             <nav className="
                 chatareanavbar 
@@ -20,7 +42,12 @@ export default class ChatAreaNavbarComponent extends Component{
                 </div>
                 <div className="chatareanavbar__right">
                     <HiOutlineSearch className="chatareanavbar__icon"/>
-                    <HiDotsVertical className="chatareanavbar__icon"/>
+                    <HiDotsVertical className="chatareanavbar__icon" onClick={this.toggleOptions}/>
+                    {optionsVisible && 
+                        <div className="chatsareanavbar__options">
+                            <ChatsOptionComponent hideOptions = {this.hideOptions}/>
+                        </div>
+                    }
                 </div>
             </nav>
         )

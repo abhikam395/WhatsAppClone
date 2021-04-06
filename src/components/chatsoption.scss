@@ -1,0 +1,32 @@
+.chatsoptions{
+    z-index: 1;
+    border-radius: 0 0 5px 5px;
+
+    &--size{
+        height: auto;
+        width: 200px;
+    }
+
+    &--theme{
+        background-color: #2A2F32;
+    }
+
+    &__list{
+        list-style: none;
+        padding: 10px 0;
+    }
+
+    &__item{
+        height: 40px;
+        font-size: 15px;
+        font-weight: 400;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover{
+            background-color: #20272B;
+        }
+    }
+}

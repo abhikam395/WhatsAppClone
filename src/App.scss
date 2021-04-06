@@ -1,7 +1,7 @@
 @import './../public/assets/scss/common.scss';
 
 .App {
-  height: 100vh;
+  min-height: 100vh;
   background-color: $primary-background;
   display: flex;
   align-items: center;

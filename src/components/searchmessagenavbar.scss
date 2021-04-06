@@ -1,0 +1,11 @@
+.searchmessagenavbar{
+    display: flex;
+
+    &--theme{
+        background-color: #2A2F32;
+    }
+
+    &--size{
+        height: 60px;
+    }
+}

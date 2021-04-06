@@ -3,6 +3,7 @@
     align-items: center;
     color: #C7C8C9;
     padding: 0px 10px;
+    z-index: 100;
 
     &--size{
         min-height: 60px;
@@ -21,6 +22,7 @@
     }
     
     &__right{
+        position: relative;
         margin-left: auto;
     }
 
@@ -46,4 +48,10 @@
         font-size: 18px;
         margin-right: 20px;
     }
+}
+
+.chatsareanavbar__options{
+    position: absolute;
+    top: 41px;
+    right: 30px;
 }

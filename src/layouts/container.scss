@@ -2,35 +2,19 @@
     display: flex;
 
     &--size{
-        max-height: calc(100vh - 40px);
+        min-height: calc(100vh - 40px);
         width: calc(100vw - 520px);
-    }
-
-    &--theme{
-        background-color: rebeccapurple;
     }
 
     &__left{
         flex: 2;
-        
-        // &--theme{
-           
-        // }
     }
 
     &__middle{
         flex: 5;
-
-        &--theme{
-            background-color: #262D31;
-        }
     }
 
     &__right{
-        // flex: 1;
-
-        &--theme{
-            background-color: aliceblue;
-        }
+        flex: 3;
     }
 }

@@ -5,7 +5,6 @@ export default class ChatComponent extends Component{
 
     render(){
         let {sender, message, time} = this.props.chat;
-        console.log(sender.id === 2)
         return (
             <li className={
                 `chat 
