@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './profileabout.scss';
 
 import {MdModeEdit} from 'react-icons/md';
+import {FaCheck} from 'react-icons/fa';
 
 export default class ProfileAboutComponent extends Component{
 
@@ -38,15 +39,19 @@ export default class ProfileAboutComponent extends Component{
                 <h4 className="profileabout__label">About</h4>
                 <div className="profileabout__row">
                     {!editable && 
-                        <h2 className="profileabout__title">{status}</h2>
+                        <div className="profileabout__row">
+                          <h2 className="profileabout__title">{status}</h2>
+                          <MdModeEdit className="profileabout__editicon" onClick={this.toggleEditOption}/>
+                      </div>
                     }
                     {editable &&
-                        <input value={status} 
-                            onChange={this.onStatusChange}
-                            className="profileabout__input" />
+                         <div className="profileabout__row">
+                         <input value={status} 
+                                 onChange={this.onStatusChange}
+                                 className="profileabout__input" />
+                         <FaCheck className="profileabout__editicon" onClick={this.toggleEditOption}/>
+                     </div>
                     }
-
-                    <MdModeEdit className="profileabout__editicon" onClick={this.toggleEditOption}/>
                 </div>
             </div>
         )

@@ -12,6 +12,7 @@
 
     &__row{
         display: flex;
+        margin-top: 25px;
     }
 
     &__label{
@@ -35,6 +36,7 @@
         margin-left: auto;
         font-size: 21px;
         cursor: pointer;
+        min-width: 40px;
     }
 
     &__input{
@@ -46,6 +48,11 @@
         outline: none;
         border-bottom: 2px solid #018C7F;
         padding-bottom: 10px;
+        width: 100%;
+    }
+
+    &__row{
+        display: flex;
         width: 100%;
     }
 }
