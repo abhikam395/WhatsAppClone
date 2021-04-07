@@ -1,0 +1,51 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 25px;
+    color: #828689;
+
+    &--size{
+        // height: 400px;
+    }
+
+    &--theme{
+        background-color: #131C21;
+    }
+
+    &__usericon{
+        font-size: 200px;
+        margin: 25px 0;
+        color: #32393D;
+        cursor: pointer;
+    }
+
+    &__info{
+        align-self: flex-start;
+        width: 100%;
+    }
+
+    &__row{
+        display: flex;
+        height: 50px;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__label{
+        font-size: 14px;
+        color: #009385;
+    }
+
+    &__name{
+        font-weight: 400;
+        font-size: 16px;
+        color: #D2D3D5;
+    }
+
+    &__editicon{
+        margin-left: auto;
+        font-size: 21px;
+        cursor: pointer;
+    }
+}

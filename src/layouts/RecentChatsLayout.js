@@ -12,7 +12,7 @@ export default class RecentChatsLayout extends Component {
                 recentchatsSection 
                 recentchatsSection--size 
                 recentchatsSection--theme">
-                <RecentChatsNavbar />
+                <RecentChatsNavbar showProfile={this.props.showProfile}/>
                 <SearchbarComponent placeholder="Search or start new chat" />
                 <RecentChatList />
             </section>

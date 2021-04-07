@@ -1,0 +1,51 @@
+.profileabout{
+    padding: 20px 25px;
+    color: #828689;
+
+    &--size{
+        // height: 200px;
+    }
+
+    &--theme{
+        background-color: #131C21;
+    }
+
+    &__row{
+        display: flex;
+    }
+
+    &__label{
+        margin: 40px 0 20px 0;
+        font-size: 14px;
+        font-weight: 400;
+        color: #018C7F;
+    }
+
+    &__description{
+        font-size: 14px;
+    }
+
+    &__title{
+        font-size: 16px;
+        font-weight: 400;
+        color: #CFD0D2;
+    }
+
+    &__editicon{
+        margin-left: auto;
+        font-size: 21px;
+        cursor: pointer;
+    }
+
+    &__input{
+        overflow-x: scroll;
+        font-size: 16px;
+        color: #CFD0D2;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        border-bottom: 2px solid #018C7F;
+        padding-bottom: 10px;
+        width: 100%;
+    }
+}

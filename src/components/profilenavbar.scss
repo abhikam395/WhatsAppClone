@@ -1,0 +1,26 @@
+.profilenavbar{
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    color: #C7C8C9;
+
+    &--size{
+        height: 110px;
+        width: 100%;
+    }
+
+    &--theme{
+        background-color: #323739;
+    }
+
+    &__icon{
+        font-size: 26px;
+        cursor: pointer;
+    }
+
+    &__title{
+        font-size: 18px;
+        font-weight: 500;
+        margin-left: 20px;
+    }
+}

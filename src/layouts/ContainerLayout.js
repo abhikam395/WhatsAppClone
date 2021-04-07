@@ -4,10 +4,13 @@ import './container.scss';
 import ChatAreaLayout from './../pages/ChatAreaPage';
 import LandingPage from './../pages/LandingPage';
 import RecentchatsSection from './../layouts/RecentChatsLayout';
+import SelfProfileViewLayout from './../layouts/SelfProfileViewLayout';
+
 import SearchMessagesLayout from './../layouts/SearchMessagesLayout';
 
 import UserProfileLayout from './../layouts/UserProfileLayout';
-import { RIGHTCONTAINERLAYOUTS } from '../utils/Constants';
+
+import { RIGHTCONTAINERLAYOUTS, LEFTCONTAINERLAYOUTS } from '../utils/Constants';
 
 export default class ContainerLayout extends Component {
 
@@ -16,16 +19,27 @@ export default class ContainerLayout extends Component {
         super();
         this.state = {
             rightContainerVisible: false,
-            enableRightContainer: RIGHTCONTAINERLAYOUTS.SEARCHMESSAGE
+            enabledRightContainer: RIGHTCONTAINERLAYOUTS.SEARCHMESSAGE,
+            enabledLeftContainer: LEFTCONTAINERLAYOUTS.PROFILEVIEW,
         }
         this.showRightContainer = this.showRightContainer.bind(this);
         this.hideRightContainer = this.hideRightContainer.bind(this);
+        this.showProfileContainer = this.showProfileContainer.bind(this);
+        this.showRecentChatsContainer = this.showRecentChatsContainer.bind(this);
+    }
+
+    showProfileContainer(){
+        this.setState({enabledLeftContainer: LEFTCONTAINERLAYOUTS.PROFILEVIEW});
+    }
+
+    showRecentChatsContainer(){
+        this.setState({enabledLeftContainer: LEFTCONTAINERLAYOUTS.RECENTCHATS});
     }
 
     showRightContainer(layout){
         this.setState({
             rightContainerVisible: true, 
-            enableRightContainer: layout
+            enabledRightContainer: layout
         });
     }
 
@@ -34,7 +48,12 @@ export default class ContainerLayout extends Component {
     }
 
     render(){
-        let {rightContainerVisible, enableRightContainer} = this.state;
+        let {
+            rightContainerVisible, 
+            enabledRightContainer, 
+            enabledLeftContainer
+        } = this.state;
+        console.log(enabledLeftContainer)
         return (
             <div className="
                 container 
@@ -43,7 +62,14 @@ export default class ContainerLayout extends Component {
                 <div className="
                     container__left 
                     container__left--size">
-                    <RecentchatsSection />
+                    {
+                        enabledLeftContainer === LEFTCONTAINERLAYOUTS.RECENTCHATS && 
+                        <RecentchatsSection showProfile={this.showProfileContainer}/>
+                    }
+                    {
+                        enabledLeftContainer === LEFTCONTAINERLAYOUTS.PROFILEVIEW && 
+                        <SelfProfileViewLayout showRecentChats={this.showRecentChatsContainer}/>
+                    }
                 </div>
                 <div className="
                     container__middle 
@@ -57,14 +83,14 @@ export default class ContainerLayout extends Component {
                             container__right--theme
                             container__right--size">
                             {
-                                enableRightContainer === RIGHTCONTAINERLAYOUTS.SEARCHMESSAGE && 
+                                enabledRightContainer === RIGHTCONTAINERLAYOUTS.SEARCHMESSAGE && 
                                 <SearchMessagesLayout
                                     hide={this.hideRightContainer} 
                                     title="Search..."
                                 />
                             }
                             {
-                                enableRightContainer === RIGHTCONTAINERLAYOUTS.USERPROFILE &&
+                                enabledRightContainer === RIGHTCONTAINERLAYOUTS.USERPROFILE &&
                                 <UserProfileLayout 
                                     hide={this.hideRightContainer} 
                                     title="Contact info"
