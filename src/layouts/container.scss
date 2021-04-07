@@ -5,16 +5,4 @@
         min-height: calc(100vh - 40px);
         width: calc(100vw - 520px);
     }
-
-    &__left{
-        flex: 2;
-    }
-
-    &__middle{
-        flex: 5;
-    }
-
-    &__right{
-        flex: 3;
-    }
 }

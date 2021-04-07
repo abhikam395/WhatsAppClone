@@ -1,0 +1,20 @@
+.home{
+    display: flex;
+
+    &--size{
+        width: 100%;
+        min-height: 100%;
+    }
+
+    &__left{
+        flex: 2;
+    }
+
+    &__middle{
+        flex: 5;
+    }
+
+    &__right{
+        flex: 3;
+    }
+}
