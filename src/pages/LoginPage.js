@@ -12,7 +12,6 @@ export default class LoginPage extends Component{
         this.state = {
             email: null,
             password: null,
-            firebaseRef: firebase.database().ref("/users/"),
         }
         this.onEmailChanged = this.onEmailChanged.bind(this);
         this.onPasswordChanged = this.onPasswordChanged.bind(this);
@@ -22,30 +21,27 @@ export default class LoginPage extends Component{
 
     loginUser(event){
         event.preventDefault();
-        let {email, password, firebaseRef} = this.state;
-        let pa = password;
+        let {email, password} = this.state;
         let {history } = this.props;
         
-        firebaseRef
-            .orderByChild('email')
-            .equalTo(email)
-            .once("value", function(snapshot){
-                if(snapshot.val()){
-                    snapshot.forEach(child => {
-                        let {password} = child.val();
-                        if(password === pa){
-                            console.log('user logined');
-                            history.push('/');
-                        }
-                        else{
-                            console.log('Wrong password');
-                        }
-                    })
+        firebase.auth()
+            .signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                var user = userCredential.user;
+                let userObject = {
+                    userId: user.uid,
+                    email: user.email,
                 }
-                else{
-                    console.log('User not registered')
-                }
-        })   
+                localStorage.setItem('user', userObject);
+                history.push('/');
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;            
+                console.log(errorCode)
+                console.log(errorMessage)
+
+            })
     }
 
     onEmailChanged(event){

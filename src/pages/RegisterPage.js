@@ -3,7 +3,7 @@ import './register.scss';
 
 import {Link} from 'react-router-dom';
 import firebase from './../utils/Firebase';
-import 'firebase/database'
+import 'firebase/auth'
 
 
 export default class RegisterPage extends Component{
@@ -24,31 +24,56 @@ export default class RegisterPage extends Component{
 
     registerUser(event){
         event.preventDefault();
-        let {name, email, password, firebaseRef} = this.state;
+        let {email, password} = this.state;
         let {history } = this.props;
+
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                var user = userCredential.user;
+                let userObject = {
+                    userId: user.uid,
+                    email: user.email,
+                }
+                localStorage.setItem('user', userObject);
+                history.push('/');
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;            
+                console.log(errorCode)
+                console.log(errorMessage)
+
+            })
         
-        firebaseRef
-            .orderByChild('email')
-            .equalTo(email)
-            .once("value", function(snapshot){
-                //if user registered
-                if(snapshot.val()){
-                    console.log('User already registered')
-                }
-                else{
-                    //register user if not registered
-                    firebaseRef.push().set({
-                        name: name,
-                        email: email,
-                        password: password
-                    }).then(value => {
-                        console.log('User registered');
-                        history.push('/');
-                    }).catch(err => {
-                        console.log(err);
-                    })
-                }
-        })   
+        // firebaseRef
+        //     .orderByChild('email')
+        //     .equalTo(email)
+        //     .once("value", function(snapshot){
+        //         //if user registered
+        //         if(snapshot.val()){
+        //             console.log('User already registered')
+        //         }
+        //         else{
+        //             //register user if not registered
+        //             firebaseRef.push().set({
+        //                 name: name,
+        //                 email: email,
+        //                 password: password
+        //             }).then(value => {
+        //                 console.log('User registered');
+        //                 firebaseRef.once('value', function(snapshot){
+        //                     snapshot.forEach(child => {
+        //                         console.log(child.key)
+        //                     })
+        //                 })
+        //                 // history.push('/');
+        //             }).catch(err => {
+        //                 console.log(err);
+        //             })
+        //         }
+        // })   
     }
 
     onNameChanged(event){
