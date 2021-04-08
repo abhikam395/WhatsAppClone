@@ -2,19 +2,53 @@ import React,{Component} from 'react';
 import './register.scss';
 
 import {Link} from 'react-router-dom';
+import firebase from './../utils/Firebase';
+import 'firebase/database'
 
-export default class registerPage extends Component{
 
-    constructor(){
-        super();
+export default class RegisterPage extends Component{
+
+    constructor(props){
+        super(props);
         this.state = {
             name: null,
             email: null,
-            password: null
+            password: null,
+            firebaseRef: firebase.database().ref("/users/"),
         }
         this.onNameChanged = this.onNameChanged.bind(this);
         this.onEmailChanged = this.onEmailChanged.bind(this);
+        this.registerUser  = this.registerUser.bind(this);
         this.onPasswordChanged = this.onPasswordChanged.bind(this);
+    }
+
+    registerUser(event){
+        event.preventDefault();
+        let {name, email, password, firebaseRef} = this.state;
+        let {history } = this.props;
+        
+        firebaseRef
+            .orderByChild('email')
+            .equalTo(email)
+            .once("value", function(snapshot){
+                //if user registered
+                if(snapshot.val()){
+                    console.log('User already registered')
+                }
+                else{
+                    //register user if not registered
+                    firebaseRef.push().set({
+                        name: name,
+                        email: email,
+                        password: password
+                    }).then(value => {
+                        console.log('User registered');
+                        history.push('/');
+                    }).catch(err => {
+                        console.log(err);
+                    })
+                }
+        })   
     }
 
     onNameChanged(event){
@@ -40,26 +74,33 @@ export default class registerPage extends Component{
                 <form className="register__form register__form--size">
                     <div className="register__box">
                         <label className="register__label">Name</label>
-                        <input 
+                        <input
+                            type="text"
                             className="register__input" 
                             onChange={this.onNameChanged}
                         />
                     </div>
                     <div className="register__box">
                         <label className="register__label">Email</label>
-                        <input 
+                        <input
+                            type="email"
                             className="register__input" 
                             onChange={this.onEmailChanged}
                         />
                     </div>
                     <div className="register__box">
                         <label className="register__label">Password</label>
-                        <input 
+                        <input
+                            type="password"
                             className="register__input" 
                             onChange={this.onPasswordChanged}
                         />
                     </div>
-                    <Link className="register__btn" to="/">Register</Link>
+                    <button 
+                        className="register__btn" 
+                        onClick={this.registerUser}>
+                        Register
+                    </button>
                     <p className="register__para">Already have an account? 
                         <Link 
                             to="/login" 
