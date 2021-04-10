@@ -25,6 +25,7 @@ export default class HomePage extends Component {
         this.hideRightContainer = this.hideRightContainer.bind(this);
         this.showProfileContainer = this.showProfileContainer.bind(this);
         this.showRecentChatsContainer = this.showRecentChatsContainer.bind(this);
+        console.log(localStorage.getItem('user'));
     }
 
     showProfileContainer(){

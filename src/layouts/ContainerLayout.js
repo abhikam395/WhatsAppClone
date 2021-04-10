@@ -10,6 +10,7 @@ import {
 import HomePage from './../pages/HomePage';
 import RegisterPage from './../pages/RegisterPage';
 import LoginPage from './../pages/LoginPage';
+import ProfilePage from './../pages/ProfilePage';
 
 export default class ContainerLayout extends Component {
 
@@ -25,6 +26,7 @@ export default class ContainerLayout extends Component {
                         <Route path="/" exact component={HomePage} />
                         <Route path="/register" exact component={RegisterPage} />
                         <Route path="/login" exact component={LoginPage} />
+                        <Route path="/profile" exact component={ProfilePage}/>
                     </Switch>
                 </Router>
             </div>

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './recentchatlist.scss';
 import RecentChatComponent from './RecentChatComponent';
+import firebase from './../utils/Firebase';
+import 'firebase/app';
 
 export default class RecentChatList extends Component {
 
@@ -12,8 +14,12 @@ export default class RecentChatList extends Component {
                 {id: 2, user: {id: 2, name: 'Ankush Negi'}, time: '6:04 PM', image: '', message: 'sdf'},
                 {id: 3, user: {id: 3, name: 'Ankush Negi'}, time: '6:04 PM', image: '', message: 'sdf'},
                 {id: 4, user: {id: 4, name: 'Ankush Negi'}, time: '6:04 PM', image: '', message: 'sdf'}
-            ]
+            ],
         }
+    }
+
+    componentDidMount(){
+        
     }
 
     renderRecentChats(chats){

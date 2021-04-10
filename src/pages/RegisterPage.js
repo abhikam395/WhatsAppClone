@@ -36,7 +36,7 @@ export default class RegisterPage extends Component{
                     userId: user.uid,
                     email: user.email,
                 }
-                localStorage.setItem('user', userObject);
+                localStorage.setItem('user', JSON.stringify(userObject));
                 history.push('/');
             })
             .catch((error) => {
